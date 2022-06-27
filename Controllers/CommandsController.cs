@@ -7,7 +7,7 @@ namespace CommanderApi.Controllers
    [Route("api/commands")]
    public class CommandsController : ControllerBase
    {
-      public readonly ICommanderRepository _CommandRepo;
+      private readonly ICommanderRepository _CommandRepo;
       public CommandsController(ICommanderRepository CommandRepo)
       {
          this._CommandRepo =CommandRepo;
@@ -32,3 +32,10 @@ namespace CommanderApi.Controllers
       }
    }
 }
+
+// @"Data Source=(localdb)\ProjectModels;Initial Catalog=EFCoreGraduation;Integrated Security=True"
+
+// ,
+//   // "ConnectionStrings": {
+//   //   "CommanderConnection" : "Server=DESKTOP-E7G0UOF;Initial Catalog=CommanderDB;User ID=CommanderAPI;Password=01283233951;"
+//   // }
