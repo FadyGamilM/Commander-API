@@ -3,6 +3,7 @@ using CommanderApi.Data;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using CommanderApi.DTOs;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace CommanderApi.Controllers
 {
@@ -88,6 +89,33 @@ namespace CommanderApi.Controllers
       }
       /*//! -------------------------------------------------------------------------- */
 
+      [HttpPatch("{id}")]
+      public ActionResult PartialCommandUpdate (int id, JsonPatchDocument<CommandUpdateDto> PatchDoc)
+      {
+         //* grap this command first and check if its exists in DB
+         var command = this._CommandRepo.GetCommandById(id);
+         if (command == null)
+         {
+            return NotFound();
+         }
+         //* map from the command to CommandUpdateDto data type to be able to apply the patch actions 
+         var commandToPatch = this._mapper.Map<CommandUpdateDto>(command);
+         //* apply the patch actions
+         PatchDoc.ApplyTo(commandToPatch, ModelState);
+         //* check the patch action validations
+         if (!TryValidateModel(commandToPatch))
+         {
+            return ValidationProblem(ModelState);
+         }
+         //* now this instance in the DBContext is holding all the changes, map it to the Command type to send it to the update method of the DbContext
+         this._mapper.Map(commandToPatch, command); // they both holding values now
+         //* call update
+         this._CommandRepo.UpdateCommand(command);
+         //* save the changes
+         this._CommandRepo.SaveChanges();
+         //* return the response as NoContent for 204
+         return NoContent();
+      }
       
    }
 }

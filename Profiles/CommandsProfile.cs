@@ -15,9 +15,15 @@ namespace CommanderApi.Profiles
          // Target => Command
          CreateMap<CommandCreateDto, Command>();
 
+         //* for put request
          // Source => CommandUpdateDto
          // Target => Command
          CreateMap<CommandUpdateDto, Command>();
+
+         //* for patch request
+         // Source => Command
+         // Target => CommandUpdateDto
+         CreateMap<Command, CommandUpdateDto>();
       }
       
    }
