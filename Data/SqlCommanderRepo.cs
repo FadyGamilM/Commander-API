@@ -1,3 +1,4 @@
+using CommanderApi.DTOs;
 using CommanderApi.Models;
 namespace CommanderApi.Data
 {
@@ -18,6 +19,32 @@ namespace CommanderApi.Data
       public Command GetCommandById(int id)
       {
          return this._context.Commands.FirstOrDefault(c => c.Id == id);
+      }
+
+      public void CreateCommand(Command command)
+      {
+         if (command == null)
+         {
+            throw new ArgumentNullException(nameof(command));
+         }
+         this._context.Commands.Add(command);
+
+      }
+
+      public void UpdateCommand(int id, Command command)
+      {
+         throw new NotImplementedException();
+      }
+
+      public void DeleteCommand(int id)
+      {
+         throw new NotImplementedException();
+      }
+
+      public bool SaveChanges()
+      {
+         // _Context.SaveChanges() will return int, so to convert it into bool use ">=0"
+         return (this._context.SaveChanges() >= 0);
       }
    }
 } 

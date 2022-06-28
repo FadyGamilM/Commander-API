@@ -1,3 +1,4 @@
+using CommanderApi.DTOs;
 using CommanderApi.Models;
 namespace CommanderApi.Data
 {
@@ -40,6 +41,26 @@ namespace CommanderApi.Data
                 Platform = "cross platform"
             };
         }
-    }
+
+      public void CreateCommand(Command command )
+      {
+         throw new NotImplementedException();
+      }
+
+      public void UpdateCommand(int id, Command command)
+      {
+         throw new NotImplementedException();
+      }
+
+      public void DeleteCommand(int id)
+      {
+         throw new NotImplementedException();
+      }
+
+      public bool SaveChanges()
+      {
+         throw new NotImplementedException();
+      }
+   }
 
 }
