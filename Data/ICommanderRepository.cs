@@ -13,11 +13,11 @@ namespace CommanderApi.Data
         //* Create a new Command 
         void CreateCommand(Command command);
 
-        //* update a command by id
+        //* update a command
         void UpdateCommand(Command command);
 
-        //* delete a command by id 
-        void DeleteCommand(int id);
+        //* delete a command 
+        void DeleteCommand(Command command);
 
       bool SaveChanges();
    }

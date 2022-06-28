@@ -37,9 +37,13 @@ namespace CommanderApi.Data
          // and .SaveChanges() will perform the changes into the DB
       }
 
-      public void DeleteCommand(int id)
+      public void DeleteCommand(Command command)
       {
-         throw new NotImplementedException();
+         if (command == null)
+         {
+            throw new ArgumentNullException(nameof(command));
+         }
+         this._context.Commands.Remove(command);
       }
 
       public bool SaveChanges()

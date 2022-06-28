@@ -89,6 +89,7 @@ namespace CommanderApi.Controllers
       }
       /*//! -------------------------------------------------------------------------- */
 
+      /*//! ----------------------------- Patch a command ---------------------------- */
       [HttpPatch("{id}")]
       public ActionResult PartialCommandUpdate (int id, JsonPatchDocument<CommandUpdateDto> PatchDoc)
       {
@@ -116,6 +117,21 @@ namespace CommanderApi.Controllers
          //* return the response as NoContent for 204
          return NoContent();
       }
+      /*//! -------------------------------------------------------------------------- */
       
+      /*//! --------------------------  Delete a command -------------------------- */
+      [HttpDelete("{id}")]
+      public ActionResult DeleteCommand (int id)
+      {
+         var command = this._CommandRepo.GetCommandById(id);
+         if (command == null)
+         {
+            return NotFound();
+         }
+         this._CommandRepo.DeleteCommand(command);
+         this._CommandRepo.SaveChanges();
+         return NoContent();
+      }
+      /*//! ------------------------------------------------------------------------ */
    }
 }
