@@ -14,6 +14,10 @@ namespace CommanderApi.Profiles
          // Source => CommandCreateDto 
          // Target => Command
          CreateMap<CommandCreateDto, Command>();
+
+         // Source => CommandUpdateDto
+         // Target => Command
+         CreateMap<CommandUpdateDto, Command>();
       }
       
    }

@@ -58,5 +58,36 @@ namespace CommanderApi.Controllers
          return CreatedAtRoute(nameof(GetCommandById), new {Id = commandReadDto.Id}, commandReadDto);        
       }
       /*//! -------------------------------------------------------------------------- */
+      
+      /*//! -------------------------- update a command (PUT) -------------------------- */
+      [HttpPut("{id}")]
+      public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
+      {
+         //* we first retrieve this Command instance from DB using DbContext
+         var command = this._CommandRepo.GetCommandById(id);
+         //* if this command is not found, so return NotFound() response with 404
+         if (command == null)
+         {
+            return NotFound();
+         }
+         // map the recieved CommandUpdateDto into Command instance
+         // notice that previously we have an object that contains data
+         // and we need to map it into a new entity type "empty object"
+         // Now, we have a 2 filled objects and we need to map them with each others
+         this._mapper.Map(commandUpdateDto, command); // (FROM, TO)
+         // the effect of the mapping here is to update the "command" instance inside the DbContext and track the changes 
+         //* => best practices 
+         this._CommandRepo.UpdateCommand(command);
+
+         //* save the changes to DB
+         this._CommandRepo.SaveChanges();
+         
+         //* return NoContent with 204
+         return NoContent();
+
+      }
+      /*//! -------------------------------------------------------------------------- */
+
+      
    }
 }

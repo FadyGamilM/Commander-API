@@ -14,7 +14,7 @@ namespace CommanderApi.Data
         void CreateCommand(Command command);
 
         //* update a command by id
-        void UpdateCommand(int id, Command command);
+        void UpdateCommand(Command command);
 
         //* delete a command by id 
         void DeleteCommand(int id);

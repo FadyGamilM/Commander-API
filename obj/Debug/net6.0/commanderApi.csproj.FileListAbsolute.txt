@@ -61,3 +61,5 @@ F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Deb
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Debug\net6.0\DotNetEnv.dll
 F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Debug\net6.0\Sprache.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Debug\net6.0\AutoMapper.dll
+F:\__111 COMPUTER SCIENCE\4th CSE 2022\dotnet\dev\commander\commanderApi\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

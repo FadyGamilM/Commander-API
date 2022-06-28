@@ -31,9 +31,10 @@ namespace CommanderApi.Data
 
       }
 
-      public void UpdateCommand(int id, Command command)
+      public void UpdateCommand(Command command)
       {
-         throw new NotImplementedException();
+         // Do nothing because we actually don't need to do nothing the automapper will track the DbContext object 
+         // and .SaveChanges() will perform the changes into the DB
       }
 
       public void DeleteCommand(int id)
